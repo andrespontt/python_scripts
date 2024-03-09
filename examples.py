@@ -15,3 +15,9 @@ for root, dirs, files in os.walk(path):
 extension = '.txt'
 files = [file for file in os.listdir(path) if file.endswith(extension)]
 print(files)
+
+# list all files in the current directory with a specific extension recursively
+extension = '.txt'
+files = [os.path.join(root, file) for root, dirs, files in os.walk(path) for file
+            in files if file.endswith(extension)]
+print(files)
